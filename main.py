@@ -1,7 +1,6 @@
 import os
 from http.server import HTTPServer, CGIHTTPRequestHandler
 print("Hallo")
-print(os.environ.get('PORT'))
 ON_HEROKU = os.environ.get('ON_HEROKU')
 
 if ON_HEROKU:
@@ -10,6 +9,7 @@ if ON_HEROKU:
 else:
     port = 3000
 print(port)
-#server_address = ("https://hacktrol.herokuapp.com/", os.environ.get('PORT'))
-#httpd = HTTPServer(server_address, CGIHTTPRequestHandler)
-#httpd.serve_forever()
+server_address = ("https://hacktrol.herokuapp.com/", port)
+httpd = HTTPServer(server_address, CGIHTTPRequestHandler)
+httpd.serve_forever()
+print("Bye")
