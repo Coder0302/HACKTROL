@@ -9,7 +9,7 @@ if ON_HEROKU:
 else:
     port = 3000
 print(port)
-server_address = ("https://hacktrol.herokuapp.com/", port)
+server_address = ("", port)
 httpd = HTTPServer(server_address, CGIHTTPRequestHandler)
 httpd.serve_forever()
 print("Bye")
