@@ -19,6 +19,6 @@ else:
 print(portt)
 
 if __name__ == "__main__":
-    app.run(host='', port=portt)
+    app.run(host='hacktrol.herokuapp.com', port=portt)
 
 print("Bye")
