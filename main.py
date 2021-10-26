@@ -1,15 +1,23 @@
-import os
-from http.server import HTTPServer, CGIHTTPRequestHandler
+from flask import Flask
+
 print("Hallo")
+app = Flask(__name__)
+
+
+@app.route("/")
+def hello():
+    return "Hello World!"
+
 ON_HEROKU = os.environ.get('ON_HEROKU')
 
 if ON_HEROKU:
     # get the heroku port
-    port = int(os.environ.get('PORT', 17995))  # as per OP comments default is 17995
+    portt = int(os.environ.get('PORT', 17995))  # as per OP comments default is 17995
 else:
     port = 3000
-print(port)
-server_address = ("", port)
-httpd = HTTPServer(server_address, CGIHTTPRequestHandler)
-httpd.serve_forever()
+print(portt)
+
+if __name__ == "__main__":
+    app.run(host='', port=portt)
+
 print("Bye")
