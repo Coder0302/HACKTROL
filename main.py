@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 
 print("Hallo")
 app = Flask(__name__)
@@ -14,7 +15,7 @@ if ON_HEROKU:
     # get the heroku port
     portt = int(os.environ.get('PORT', 17995))  # as per OP comments default is 17995
 else:
-    port = 3000
+    portt = 3000
 print(portt)
 
 if __name__ == "__main__":
