@@ -4,11 +4,19 @@ import os
 print("Hallo")
 app = Flask(__name__)
 
+action = '0'
 
 @app.route("/")
 def hello():
-    print(request.args['x'])
-    return "Hello World!"
+    result = ''
+    if request.args['device'] == 'comp'
+        if request.args['action'] == 'check'
+            result = action
+            action = '0'
+    elif request.args['device'] == 'phone'
+        if request.args['action'] == 'send'
+            action = request.args['doaction']
+    return result
 
 ON_HEROKU = os.environ.get('ON_HEROKU')
 
