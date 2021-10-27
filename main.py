@@ -8,6 +8,7 @@ action = '0'
 
 @app.route("/")
 def hello():
+    global action
     result = ''
     if request.args['device'] == 'comp':
         if request.args['action'] == 'check':
