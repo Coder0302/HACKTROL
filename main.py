@@ -9,12 +9,12 @@ action = '0'
 @app.route("/")
 def hello():
     result = ''
-    if request.args['device'] == 'comp'
-        if request.args['action'] == 'check'
+    if request.args['device'] == 'comp':
+        if request.args['action'] == 'check':
             result = action
             action = '0'
-    elif request.args['device'] == 'phone'
-        if request.args['action'] == 'send'
+    elif request.args['device'] == 'phone':
+        if request.args['action'] == 'send':
             action = request.args['doaction']
     return result
 
