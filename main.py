@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import os
 
 print("Hallo")
@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
+    print(request.args['x'])
     return "Hello World!"
 
 ON_HEROKU = os.environ.get('ON_HEROKU')
