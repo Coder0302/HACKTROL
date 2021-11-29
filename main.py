@@ -17,6 +17,8 @@ def hello():
     elif request.args['device'] == 'phone':
         if request.args['action'] == 'send':
             action = request.args['doaction']
+        if request.args['action'] == 'kill':
+            action = '1'
     return result
 
 ON_HEROKU = os.environ.get('ON_HEROKU')
