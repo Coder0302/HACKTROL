@@ -11,7 +11,7 @@ action = '0'
 def hello():
     global action, isKillGame
     result = ''
-    if !isKillGame:
+    if is not isKillGame:
         if request.args['device'] == 'comp':
             if request.args['action'] == 'check':
                 result = action
