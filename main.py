@@ -11,20 +11,14 @@ action = '0'
 def hello():
     global action, isKillGame
     result = ''
-    if is not isKillGame:
-        if request.args['device'] == 'comp':
-            if request.args['action'] == 'check':
-                result = action
-                action = '0'
-        elif request.args['device'] == 'phone':
-            if request.args['action'] == 'send':
-                action = request.args['doaction']
-            if request.args['action'] == 'kill':
-                result = '1'
-                isKillGame = True
-        return result
-    else 
-        return 1
+    if request.args['device'] == 'comp':
+        if request.args['action'] == 'check':
+            result = action
+            action = '0'
+    elif request.args['device'] == 'phone':
+        if request.args['action'] == 'send':
+            action = request.args['doaction']
+    return result
 
 ON_HEROKU = os.environ.get('ON_HEROKU')
 
