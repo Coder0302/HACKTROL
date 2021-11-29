@@ -4,22 +4,27 @@ import os
 print("Hallo")
 app = Flask(__name__)
 
+isKillGame = False
 action = '0'
 
 @app.route("/")
 def hello():
-    global action
+    global action, isKillGame
     result = ''
-    if request.args['device'] == 'comp':
-        if request.args['action'] == 'check':
-            result = action
-            action = '0'
-    elif request.args['device'] == 'phone':
-        if request.args['action'] == 'send':
-            action = request.args['doaction']
-        if request.args['action'] == 'kill':
-            action = '1'
-    return result
+    if !isKillGame:
+        if request.args['device'] == 'comp':
+            if request.args['action'] == 'check':
+                result = action
+                action = '0'
+        elif request.args['device'] == 'phone':
+            if request.args['action'] == 'send':
+                action = request.args['doaction']
+            if request.args['action'] == 'kill':
+                result = '1'
+                isKillGame = True
+        return result
+    else 
+        return 1
 
 ON_HEROKU = os.environ.get('ON_HEROKU')
 
