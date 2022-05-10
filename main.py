@@ -4,20 +4,16 @@ import os
 print("Hallo")
 app = Flask(__name__)
 
-isKillGame = False
-action = '0'
+action = ''
 
 @app.route("/")
 def hello():
-    global action, isKillGame
+    global action
     result = ''
-    if request.args['device'] == 'comp':
-        if request.args['action'] == 'check':
-            result = action
-            action = '0'
-    elif request.args['device'] == 'phone':
-        if request.args['action'] == 'send':
-            action = request.args['doaction']
+    if request.args['msg'] != 'check':
+        result = action
+    else:
+        action += request.args['msg']
     return result
 
 ON_HEROKU = os.environ.get('ON_HEROKU')
