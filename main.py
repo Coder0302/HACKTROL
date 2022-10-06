@@ -26,6 +26,6 @@ else:
 print(portt)
 
 if __name__ == "__main__":
-    app.run(port=portt)
+    app.run(host='0.0.0.0', port=portt)
 
 print("Bye")
